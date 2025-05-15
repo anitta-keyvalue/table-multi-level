@@ -1,9 +1,9 @@
 {
-  "name": "@kv-test/material-table-component",
+  "name": "@anitta-kv/material-table-component",
   "private": false,
   "version": "0.1.0",
   "description": "A flexible and customizable table component built with React and Material-UI",
-  "author": "kv-test Software Systems",
+  "author": "anitta-kv",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",
@@ -16,19 +16,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kv-testSoftwareSystems/react-multi-level-table.git"
+    "url": "git+https://github.com/anitta-keyvalue/table-multi-level.git"
   },
   "bugs": {
-    "url": "https://github.com/kv-testSoftwareSystems/siren-react-inbox/issues"
+    "url": "https://github.com/anitta-keyvalue/table-multi-level/issues"
   },
-  "homepage": "https://github.com/kv-testSoftwareSystems/siren-react-inbox#readme",
+  "homepage": "https://github.com/anitta-keyvalue/table-multi-level#readme",
   "keywords": [
-    "react",
-    "table",
-    "material-ui",
-    "typescript",
-    "component",
-    "data-grid"
+    "react"
   ],
   "scripts": {
     "dev": "vite",

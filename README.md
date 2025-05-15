@@ -24,20 +24,20 @@
 
 ## Overview
 
-The `@kv-test/material-table-component` is a flexible and customizable multi-level table component for React applications. It provides comprehensive support for displaying hierarchical data with features like sorting, filtering, and pagination. This documentation provides detailed information on how to install, configure, and use the component effectively.
+The `@anitta-kv/material-table-component` is a flexible and customizable multi-level table component for React applications. It provides comprehensive support for displaying hierarchical data with features like sorting, filtering, and pagination. This documentation provides detailed information on how to install, configure, and use the component effectively.
 
 ## 1. Installation
 
 You can install the component from npm:
 
 ```bash
-npm install @kv-test/material-table-component
+npm install @anitta-kv/material-table-component
 ```
 
 or from yarn:
 
 ```bash
-yarn add @kv-test/material-table-component
+yarn add @anitta-kv/material-table-component
 ```
 
 #### Prerequisites
@@ -52,7 +52,7 @@ yarn add @kv-test/material-table-component
 Here's a basic example of how to use the MultiLevelTable component:
 
 ```tsx
-import { MultiLevelTable } from '@kv-test/material-table-component';
+import { MultiLevelTable } from '@anitta-kv/material-table-component';
 
 const data = [
   {
@@ -432,7 +432,7 @@ Here's a complete example showing how to use the component with custom styling a
 
 ```tsx
 import React from 'react';
-import { MultiLevelTable } from '@kv-test/material-table-component';
+import { MultiLevelTable } from '@anitta-kv/material-table-component';
 
 function App() {
   const data = [

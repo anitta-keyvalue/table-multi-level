@@ -1,6 +1,6 @@
 # Multi-Level Table Example
 
-This is an example project demonstrating the usage of `@kv-test/material-table-component`.
+This is an example project demonstrating the usage of `@anitta-kv/material-table-component`.
 
 ## Features Demonstrated
 
