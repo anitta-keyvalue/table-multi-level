@@ -1,4 +1,5 @@
 import React from 'react';
+import { TableState, TableInstance, Row } from 'react-table';
 
 interface ThemeProps {
     colors?: {
@@ -95,6 +96,26 @@ interface DataItem {
     status: 'Active' | 'Inactive' | 'Pending';
     children?: DataItem[];
 }
+interface TableStateWithPagination<T extends object> extends TableState<T> {
+    pageIndex: number;
+    pageSize: number;
+}
+interface TableInstanceWithHooks<T extends object> extends TableInstance<T> {
+    page: Row<T>[];
+    canPreviousPage: boolean;
+    canNextPage: boolean;
+    pageOptions: number[];
+    pageCount: number;
+    gotoPage: (updater: number | ((pageIndex: number) => number)) => void;
+    nextPage: () => void;
+    previousPage: () => void;
+    setPageSize: (pageSize: number) => void;
+    state: TableStateWithPagination<T>;
+}
+interface SelectionState {
+    selectedRows: Set<string | number>;
+    isAllSelected: boolean;
+}
 
 /**
  * Props for the MultiLevelTable component
@@ -126,4 +147,4 @@ interface MultiLevelTableProps {
 declare const MultiLevelTable: React.FC<MultiLevelTableProps>;
 
 export { MultiLevelTable };
-export type { MultiLevelTableProps };
+export type { Column, DataItem, MultiLevelTableProps, SelectionState, TableInstanceWithHooks, TableStateWithPagination };

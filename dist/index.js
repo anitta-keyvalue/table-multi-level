@@ -4731,8 +4731,8 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z$5 = ".Pagination_pagination-container__QEQFm{align-items:center;display:flex;justify-content:space-between;margin-top:10px;padding:12px}.Pagination_pagination-button__ACFIt{background-color:#2c3e50;border:none;border-radius:4px;color:#fff;cursor:pointer;margin:0 4px;padding:6px 12px}.Pagination_pagination-button__ACFIt:disabled{cursor:not-allowed;opacity:.5}.Pagination_pagination-info__RGm7k{color:#2c3e50;margin-left:8px}.Pagination_pagination-select__bkJXv{background-color:#fff;border:1px solid #e0e0e0;border-radius:4px;color:#2c3e50;padding:6px 12px}";
-styleInject(css_248z$5,{"insertAt":"top"});
+var css_248z$5 = ".pagination-container{align-items:center;display:flex;justify-content:space-between;margin-top:10px;padding:12px}.pagination-button{background-color:#2c3e50;border:none;border-radius:4px;color:#fff;cursor:pointer;margin:0 4px;padding:6px 12px}.pagination-button:disabled{cursor:not-allowed;opacity:.5}.pagination-info{color:#2c3e50;margin-left:8px}.pagination-select{background-color:#fff;border:1px solid #e0e0e0;border-radius:4px;color:#2c3e50;padding:6px 12px}";
+styleInject(css_248z$5);
 
 /**
  * Renders pagination controls for the table
@@ -4769,8 +4769,8 @@ const Pagination = ({ canPreviousPage, canNextPage, pageOptions, pageCount, page
                         }, children: PAGE_SIZE_OPTIONS.map(pageSize => (jsxRuntime.jsxs("option", { value: pageSize, children: ["Show ", pageSize] }, pageSize))) })] })] }));
 };
 
-var css_248z$4 = ".TableHeader_table-header__YF4aS th{background-color:#2c3e50;border-bottom:2px solid #e0e0e0;color:#fff;font-weight:600;padding:12px}.TableHeader_table-header__YF4aS th.TableHeader_sortable__s-sBm{cursor:pointer}.TableHeader_table-header-cell__SSz99{align-items:center;display:flex;flex-wrap:wrap;gap:4px;padding:12px}.TableHeader_filter-container__6Q3bW{padding:1px}.TableHeader_filter-input__c7iGO{border:1px solid #e0e0e0;border-radius:4px;padding:6px}.TableHeader_table-header-cell__SSz99 span{align-items:center;display:flex;font-size:18px;gap:4px}.TableHeader_sort-icon__4J6dk{width:10px}";
-styleInject(css_248z$4,{"insertAt":"top"});
+var css_248z$4 = ".table-header th{background-color:#2c3e50;border-bottom:2px solid #e0e0e0;color:#fff;font-weight:600;padding:12px}.table-header th.sortable{cursor:pointer}.table-header-cell{align-items:center;display:flex;flex-wrap:wrap;gap:4px;padding:12px}.filter-container{padding:1px}.filter-input{border:1px solid #e0e0e0;border-radius:4px;padding:6px}.table-header-cell span{align-items:center;display:flex;font-size:18px;gap:4px}.sort-icon{width:10px}";
+styleInject(css_248z$4);
 
 /**
  * Renders the table header with support for sorting and filtering
@@ -4804,8 +4804,8 @@ const TableHeader = ({ headerGroups, theme, sortable = false, ascendingIcon, des
         }) }));
 };
 
-var css_248z$3 = ".ExpandIcon_expand-icon__oanN7{margin-right:8px}";
-styleInject(css_248z$3,{"insertAt":"top"});
+var css_248z$3 = ".expand-icon{margin-right:8px}";
+styleInject(css_248z$3);
 
 /**
  * Renders an expand/collapse icon for table rows
@@ -4817,8 +4817,8 @@ const ExpandIcon = ({ isExpanded, theme }) => {
     return (jsxRuntime.jsx("span", { className: "expand-icon", style: { color: theme.expandIcon?.color }, children: isExpanded ? '▼' : '▶' }));
 };
 
-var css_248z$2 = ".TableCell_table-cell__Uxp3T{border-bottom:1px solid #e0e0e0;color:#2c3e50;padding:12px}.TableCell_table-cell-content__QhYps{align-items:center;display:flex;padding:0 12px}.TableCell_expand-button__uxzOb{align-items:center;background:none;border:none;cursor:pointer;display:flex;margin-right:2px;padding:0;width:20px}.TableCell_row-checkbox__owBlr{cursor:pointer;margin-right:8px}";
-styleInject(css_248z$2,{"insertAt":"top"});
+var css_248z$2 = ".table-cell{border-bottom:1px solid #e0e0e0;color:#2c3e50;padding:12px}.table-cell-content{align-items:center;display:flex;padding:0 12px}.expand-button{align-items:center;background:none;border:none;cursor:pointer;display:flex;margin-right:2px;padding:0;width:20px}.row-checkbox{cursor:pointer;margin-right:8px}";
+styleInject(css_248z$2);
 
 /**
  * Renders a table cell with support for expand/collapse icons
@@ -4845,8 +4845,8 @@ const TableCell = ({ cell, hasChildren, isExpanded, onToggle, paddingLeft = 0, t
         }, children: jsxRuntime.jsxs("div", { className: "table-cell-content", children: [selectable && (jsxRuntime.jsx("input", { type: "checkbox", checked: isRowSelected, onChange: onSelect, className: "row-checkbox" })), isSelectionColumn ? (cell.render('Cell')) : (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [hasChildren ? (jsxRuntime.jsx("button", { onClick: handleExpandClick, className: "expand-button", children: expandIcon || jsxRuntime.jsx(ExpandIcon, { isExpanded: isExpanded, theme: theme }) })) : jsxRuntime.jsx("div", { className: "expand-button" }), cell.render('Cell')] }))] }) }, key));
 };
 
-var css_248z$1 = ".TableRow_table-row__eygjL{cursor:pointer}.TableRow_table-row-nested__cI-73{background-color:#f1f3f5}.TableRow_table-row-expanded__VSmjW{background-color:#f8f9fa}.TableRow_table-row-main__EKm2e{background-color:#fff}.TableRow_table-cell-nested__-72RW{padding-left:0}";
-styleInject(css_248z$1,{"insertAt":"top"});
+var css_248z$1 = ".table-row{cursor:pointer}.table-row-nested{background-color:#f1f3f5}.table-row-expanded{background-color:#f8f9fa}.table-row-main{background-color:#fff}.table-cell-nested{padding-left:0}";
+styleInject(css_248z$1);
 
 /**
  * Renders a table row with support for nested rows and expansion
@@ -4961,8 +4961,8 @@ function mergeThemeProps(defaults, custom) {
     return result;
 }
 
-var css_248z = ".MultiLevelTable_table-container__S6j-M{border-collapse:collapse;border-spacing:0;width:100%}.MultiLevelTable_table-wrapper__pINDR{-webkit-overflow-scrolling:touch;overflow-x:auto;width:100%}.MultiLevelTable_table-container__S6j-M{min-width:100%;white-space:nowrap}.MultiLevelTable_table-container__S6j-M td,.MultiLevelTable_table-container__S6j-M th{padding:8px;white-space:nowrap}.MultiLevelTable_selection-cell__ACpYY,.MultiLevelTable_selection-header__-VxSm{align-items:center;display:flex;justify-content:center;padding:8px}.MultiLevelTable_selection-cell__ACpYY input[type=checkbox],.MultiLevelTable_selection-header__-VxSm input[type=checkbox]{height:16px;margin:0;width:16px}";
-styleInject(css_248z,{"insertAt":"top"});
+var css_248z = ".table-container{border-collapse:collapse;border-spacing:0;width:100%}.table-wrapper{-webkit-overflow-scrolling:touch;overflow-x:auto;width:100%}.table-container{min-width:100%;white-space:nowrap}.table-container td,.table-container th{padding:8px;white-space:nowrap}.selection-cell,.selection-header{align-items:center;display:flex;justify-content:center;padding:8px}.selection-cell input[type=checkbox],.selection-header input[type=checkbox]{height:16px;margin:0;width:16px}";
+styleInject(css_248z);
 
 /**
  * A multi-level table component that supports hierarchical data, sorting, filtering, and pagination
