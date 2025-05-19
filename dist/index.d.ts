@@ -83,7 +83,7 @@ interface PaginationProps {
 
 interface Column {
     key: string;
-    title: string;
+    title: string | React.ReactNode;
     filterable?: boolean;
     render?: (value: string | number, item: DataItem) => React.ReactNode;
     sortable?: boolean;
@@ -99,6 +99,14 @@ interface DataItem {
 interface TableStateWithPagination<T extends object> extends TableState<T> {
     pageIndex: number;
     pageSize: number;
+    sortBy: Array<{
+        id: string;
+        desc: boolean;
+    }>;
+    filters: Array<{
+        id: string;
+        value: string;
+    }>;
 }
 interface TableInstanceWithHooks<T extends object> extends TableInstance<T> {
     page: Row<T>[];
@@ -124,6 +132,7 @@ interface SelectionState {
  * @property {Column[]} columns - Array of column configurations
  * @property {number} [pageSize=10] - Number of items per page
  * @property {ThemeProps} theme - Theme properties
+ * @property {(row: DataItem) => void} [onRowClick] - Optional callback function when a parent row is clicked
  */
 interface MultiLevelTableProps {
     data: DataItem[];
@@ -137,6 +146,7 @@ interface MultiLevelTableProps {
     expandIcon?: React.ReactNode;
     selectable?: boolean;
     onSelectionChange?: (selectedRows: Set<string | number>) => void;
+    onRowClick?: (row: DataItem) => void;
 }
 /**
  * A multi-level table component that supports hierarchical data, sorting, filtering, and pagination

@@ -4732,7 +4732,7 @@ function styleInject(css, ref) {
 }
 
 var css_248z$5 = ".pagination-container{align-items:center;display:flex;justify-content:space-between;margin-top:10px;padding:12px}.pagination-button{background-color:#2c3e50;border:none;border-radius:4px;color:#fff;cursor:pointer;margin:0 4px;padding:6px 12px}.pagination-button:disabled{cursor:not-allowed;opacity:.5}.pagination-info{color:#2c3e50;margin-left:8px}.pagination-select{background-color:#fff;border:1px solid #e0e0e0;border-radius:4px;color:#2c3e50;padding:6px 12px}";
-styleInject(css_248z$5);
+styleInject(css_248z$5,{"insertAt":"top"});
 
 /**
  * Renders pagination controls for the table
@@ -4770,7 +4770,7 @@ const Pagination = ({ canPreviousPage, canNextPage, pageOptions, pageCount, page
 };
 
 var css_248z$4 = ".table-header th{background-color:#2c3e50;border-bottom:2px solid #e0e0e0;color:#fff;font-weight:600;padding:12px}.table-header th.sortable{cursor:pointer}.table-header-cell{align-items:center;display:flex;flex-wrap:wrap;gap:4px;padding:12px}.filter-container{padding:1px}.filter-input{border:1px solid #e0e0e0;border-radius:4px;padding:6px}.table-header-cell span{align-items:center;display:flex;font-size:18px;gap:4px}.sort-icon{width:10px}";
-styleInject(css_248z$4);
+styleInject(css_248z$4,{"insertAt":"top"});
 
 /**
  * Renders the table header with support for sorting and filtering
@@ -4791,11 +4791,11 @@ const TableHeader = ({ headerGroups, theme, sortable = false, ascendingIcon, des
                             backgroundColor: theme.table?.header?.background,
                             color: theme.table?.header?.textColor,
                             borderColor: theme.table?.cell?.borderColor,
-                        }, children: jsxRuntime.jsxs("div", { className: "table-header-cell", children: [index === 0 && selectable && (jsxRuntime.jsx("input", { type: "checkbox", checked: isAllSelected, onChange: onSelectAll, style: { marginRight: 8, cursor: 'pointer' } })), jsxRuntime.jsxs("span", { style: { display: 'inline-flex', alignItems: 'center', cursor: isColumnSortable ? 'pointer' : 'default', userSelect: 'none' }, onClick: isColumnSortable ? (e => { e.stopPropagation(); sortProps.onClick?.(e); }) : undefined, children: [column.title || column.id, jsxRuntime.jsx("span", { className: "sort-icon", style: { marginLeft: 4 }, children: column.isSorted
+                        }, children: jsxRuntime.jsxs("div", { className: "table-header-cell", children: [index === 0 && selectable && (jsxRuntime.jsx("input", { type: "checkbox", checked: isAllSelected, onChange: onSelectAll, style: { marginRight: 8, cursor: 'pointer' } })), jsxRuntime.jsxs("span", { style: { display: 'inline-flex', alignItems: 'center', cursor: isColumnSortable ? 'pointer' : 'default', userSelect: 'none' }, onClick: isColumnSortable ? (e) => { e.stopPropagation(); sortProps.onClick?.(e); } : undefined, children: [column.render('Header'), jsxRuntime.jsx("span", { className: "sort-icon", style: { marginLeft: 4 }, children: column.isSorted
                                                 ? column.isSortedDesc
                                                     ? descendingIcon || "↓"
                                                     : ascendingIcon || "↑"
-                                                : " " })] }), column.Filter && (jsxRuntime.jsx("div", { className: "filter-container", children: jsxRuntime.jsx("input", { className: "filter-input", value: column.filterValue || "", onChange: (e) => column.setFilter?.(e.target.value), placeholder: `Filter ${column.title || column.id}...`, style: {
+                                                : " " })] }), column.Filter && (jsxRuntime.jsx("div", { className: "filter-container", children: jsxRuntime.jsx("input", { className: "filter-input", value: column.filterValue || "", onChange: (e) => column.setFilter?.(e.target.value), placeholder: `Filter ${typeof column.title === 'string' ? column.title : column.id}...`, style: {
                                             color: theme.table?.filter?.textColor,
                                             borderColor: theme.table?.filter?.borderColor,
                                             backgroundColor: theme.table?.filter?.background,
@@ -4805,7 +4805,7 @@ const TableHeader = ({ headerGroups, theme, sortable = false, ascendingIcon, des
 };
 
 var css_248z$3 = ".expand-icon{margin-right:8px}";
-styleInject(css_248z$3);
+styleInject(css_248z$3,{"insertAt":"top"});
 
 /**
  * Renders an expand/collapse icon for table rows
@@ -4818,7 +4818,7 @@ const ExpandIcon = ({ isExpanded, theme }) => {
 };
 
 var css_248z$2 = ".table-cell{border-bottom:1px solid #e0e0e0;color:#2c3e50;padding:12px}.table-cell-content{align-items:center;display:flex;padding:0 12px}.expand-button{align-items:center;background:none;border:none;cursor:pointer;display:flex;margin-right:2px;padding:0;width:20px}.row-checkbox{cursor:pointer;margin-right:8px}";
-styleInject(css_248z$2);
+styleInject(css_248z$2,{"insertAt":"top"});
 
 /**
  * Renders a table cell with support for expand/collapse icons
@@ -4845,8 +4845,8 @@ const TableCell = ({ cell, hasChildren, isExpanded, onToggle, paddingLeft = 0, t
         }, children: jsxRuntime.jsxs("div", { className: "table-cell-content", children: [selectable && (jsxRuntime.jsx("input", { type: "checkbox", checked: isRowSelected, onChange: onSelect, className: "row-checkbox" })), isSelectionColumn ? (cell.render('Cell')) : (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [hasChildren ? (jsxRuntime.jsx("button", { onClick: handleExpandClick, className: "expand-button", children: expandIcon || jsxRuntime.jsx(ExpandIcon, { isExpanded: isExpanded, theme: theme }) })) : jsxRuntime.jsx("div", { className: "expand-button" }), cell.render('Cell')] }))] }) }, key));
 };
 
-var css_248z$1 = ".table-row{cursor:pointer}.table-row-nested{background-color:#f1f3f5}.table-row-expanded{background-color:#f8f9fa}.table-row-main{background-color:#fff}.table-cell-nested{padding-left:0}";
-styleInject(css_248z$1);
+var css_248z$1 = ".table-row-clickable{cursor:pointer}.table-row-nested{background-color:#f1f3f5}.table-row-expanded{background-color:#f8f9fa}.table-row-main{background-color:#fff}.table-cell-nested{padding-left:0}";
+styleInject(css_248z$1,{"insertAt":"top"});
 
 /**
  * Renders a table row with support for nested rows and expansion
@@ -4854,17 +4854,19 @@ styleInject(css_248z$1);
  * @param {TableRowProps} props - Component props
  * @returns {JSX.Element} Rendered table row
  */
-const TableRow = ({ row, columns, hasChildren, isExpanded, onToggle, level = 0, theme, expandIcon, selectable = false, isRowSelected = false, onRowSelect, }) => {
+const TableRow = ({ row, columns, hasChildren, isExpanded, onToggle, level = 0, theme, expandIcon, selectable = false, isRowSelected = false, onRowSelect, onRowClick, }) => {
     const getRowClassName = require$$0.useMemo(() => {
-        const classes = ["table-row"];
+        const classes = [];
         if (isExpanded)
             classes.push("table-row-expanded");
         if (level === 0)
             classes.push("table-row-main");
+        if (onRowClick)
+            classes.push("table-row-clickable");
         else
             classes.push("table-row-nested");
         return classes.join(" ");
-    }, [isExpanded, level]);
+    }, [isExpanded, level, onRowClick]);
     const getRowStyle = require$$0.useMemo(() => {
         const rowShades = theme.table?.row?.levelColors || [];
         // Use the level to determine which shade to use, defaulting to the lightest shade for deeper nesting
@@ -4875,10 +4877,16 @@ const TableRow = ({ row, columns, hasChildren, isExpanded, onToggle, level = 0, 
         e.stopPropagation();
         onToggle();
     };
+    const handleRowClick = () => {
+        if (onRowClick && level === 0) {
+            const dataItem = "original" in row ? row.original : row;
+            onRowClick(dataItem);
+        }
+    };
     // For nested rows that don't have getRowProps
     if (!("getRowProps" in row)) {
         const dataItem = row;
-        return (jsxRuntime.jsx("tr", { className: getRowClassName, style: getRowStyle, children: columns.map((column, index) => {
+        return (jsxRuntime.jsx("tr", { className: getRowClassName, style: getRowStyle, onClick: handleRowClick, children: columns.map((column, index) => {
                 const value = dataItem[column.key];
                 const displayValue = typeof value === "string" || typeof value === "number" ? value : "";
                 return (jsxRuntime.jsx("td", { className: `table-cell ${level > 0 ? "table-cell-nested" : ""}`, style: {
@@ -4892,7 +4900,7 @@ const TableRow = ({ row, columns, hasChildren, isExpanded, onToggle, level = 0, 
     // For main table rows that have getRowProps
     const tableRow = row;
     const { key, ...rowProps } = tableRow.getRowProps();
-    return (jsxRuntime.jsx("tr", { ...rowProps, className: getRowClassName, style: getRowStyle, children: tableRow.cells.map((cell, index) => (jsxRuntime.jsx(TableCell, { cell: cell, hasChildren: hasChildren && index === 0, isExpanded: isExpanded, onToggle: onToggle, paddingLeft: level > 0 ? 32 + level * 16 : 0, theme: theme, expandIcon: expandIcon, selectable: selectable && index === 0, isRowSelected: isRowSelected, onRowSelect: onRowSelect, rowId: tableRow.original.id }, cell.column.id))) }, key));
+    return (jsxRuntime.jsx("tr", { ...rowProps, className: getRowClassName, style: getRowStyle, onClick: handleRowClick, children: tableRow.cells.map((cell, index) => (jsxRuntime.jsx(TableCell, { cell: cell, hasChildren: hasChildren && index === 0, isExpanded: isExpanded, onToggle: onToggle, paddingLeft: level > 0 ? 32 + level * 16 : 0, theme: theme, expandIcon: expandIcon, selectable: selectable && index === 0, isRowSelected: isRowSelected, onRowSelect: onRowSelect, rowId: tableRow.original.id }, cell.column.id))) }, key));
 };
 
 var SortType;
@@ -4962,7 +4970,7 @@ function mergeThemeProps(defaults, custom) {
 }
 
 var css_248z = ".table-container{border-collapse:collapse;border-spacing:0;width:100%}.table-wrapper{-webkit-overflow-scrolling:touch;overflow-x:auto;width:100%}.table-container{min-width:100%;white-space:nowrap}.table-container td,.table-container th{padding:8px;white-space:nowrap}.selection-cell,.selection-header{align-items:center;display:flex;justify-content:center;padding:8px}.selection-cell input[type=checkbox],.selection-header input[type=checkbox]{height:16px;margin:0;width:16px}";
-styleInject(css_248z);
+styleInject(css_248z,{"insertAt":"top"});
 
 /**
  * A multi-level table component that supports hierarchical data, sorting, filtering, and pagination
@@ -4970,7 +4978,7 @@ styleInject(css_248z);
  * @param {MultiLevelTableProps} props - Component props
  * @returns {JSX.Element} Rendered component
  */
-const MultiLevelTable = ({ data, columns, pageSize = 10, theme, renderCustomPagination = null, sortable = false, ascendingIcon, descendingIcon, expandIcon, selectable = false, onSelectionChange, }) => {
+const MultiLevelTable = ({ data, columns, pageSize = 10, theme, renderCustomPagination = null, sortable = false, ascendingIcon, descendingIcon, expandIcon, selectable = false, onSelectionChange, onRowClick, }) => {
     const mergedTheme = mergeThemeProps(defaultTheme, theme);
     const [filterInput, setFilterInput] = require$$0.useState("");
     const [selectionState, setSelectionState] = require$$0.useState({
@@ -5009,7 +5017,8 @@ const MultiLevelTable = ({ data, columns, pageSize = 10, theme, renderCustomPagi
      */
     const tableColumns = require$$0.useMemo(() => {
         return columns.map((col) => ({
-            Header: col.title,
+            id: col.key,
+            Header: () => col.title,
             accessor: (row) => row[col.key],
             disableSortBy: sortable ? col.sortable === false : true,
             sortType: col.customSortFn ? SortType.Custom : SortType.Basic,
@@ -5022,11 +5031,11 @@ const MultiLevelTable = ({ data, columns, pageSize = 10, theme, renderCustomPagi
                 ? ({ column }) => (jsxRuntime.jsx("input", { value: filterInput, onChange: (e) => {
                         setFilterInput(e.target.value);
                         column.setFilter(e.target.value);
-                    }, placeholder: `Filter ${col.title}...` }))
+                    }, placeholder: `Filter ${typeof col.title === 'string' ? col.title : col.key}...` }))
                 : undefined,
         }));
     }, [columns, filterInput, sortable]);
-    const { getTableProps, getTableBodyProps, headerGroups, page, prepareRow, canPreviousPage, canNextPage, pageOptions, pageCount, gotoPage, nextPage, previousPage, setPageSize, state: { pageIndex, pageSize: currentPageSize }, } = reactTableExports.useTable({
+    const { getTableProps, getTableBodyProps, headerGroups, page, prepareRow, canPreviousPage, canNextPage, pageOptions, pageCount, gotoPage, nextPage, previousPage, setPageSize, state: { pageIndex, pageSize: currentPageSize, sortBy, filters }, } = reactTableExports.useTable({
         columns: tableColumns,
         data,
         initialState: { pageSize },
@@ -5052,6 +5061,12 @@ const MultiLevelTable = ({ data, columns, pageSize = 10, theme, renderCustomPagi
         return map;
     }, [data]);
     const [expandedRows, setExpandedRows] = require$$0.useState(new Set());
+    // Collapse expanded rows when filtering or sorting occurs
+    require$$0.useEffect(() => {
+        if (expandedRows.size > 0)
+            setExpandedRows(new Set());
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [sortBy, filters]);
     const toggleRow = (rowId) => {
         setExpandedRows((prev) => {
             const newSet = new Set(prev);
@@ -5093,7 +5108,7 @@ const MultiLevelTable = ({ data, columns, pageSize = 10, theme, renderCustomPagi
                 prepareRow(row);
                 const parentId = row.original.id;
                 const hasChildren = rowsMap.has(parentId);
-                return (jsxRuntime.jsxs(require$$0.Fragment, { children: [jsxRuntime.jsx(TableRow, { row: row, columns: columns, hasChildren: hasChildren, isExpanded: expandedRows.has(parentId), onToggle: () => hasChildren && toggleRow(parentId), level: 0, theme: mergedTheme, expandIcon: expandIcon, selectable: true, isRowSelected: selectionState.selectedRows.has(row.original.id), onRowSelect: handleRowSelect }), renderNestedRows(parentId)] }, parentId));
+                return (jsxRuntime.jsxs(require$$0.Fragment, { children: [jsxRuntime.jsx(TableRow, { row: row, columns: columns, hasChildren: hasChildren, isExpanded: expandedRows.has(parentId), onToggle: () => hasChildren && toggleRow(parentId), level: 0, theme: mergedTheme, expandIcon: expandIcon, selectable: true, isRowSelected: selectionState.selectedRows.has(row.original.id), onRowSelect: handleRowSelect, onRowClick: onRowClick }), renderNestedRows(parentId)] }, parentId));
             }) }));
     };
     return (jsxRuntime.jsx("div", { style: { backgroundColor: mergedTheme.colors?.background }, children: jsxRuntime.jsxs("div", { className: "table-wrapper", children: [jsxRuntime.jsxs("table", { ...getTableProps(), className: "table-container", style: { borderColor: mergedTheme.table?.cell?.borderColor }, children: [jsxRuntime.jsx(TableHeader, { headerGroups: headerGroups, theme: mergedTheme, sortable: sortable, ascendingIcon: ascendingIcon, descendingIcon: descendingIcon, selectable: selectable, isAllSelected: selectionState.isAllSelected, onSelectAll: handleSelectAll }), renderTableBody()] }), renderPagination()] }) }));

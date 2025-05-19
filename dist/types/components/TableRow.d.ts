@@ -17,6 +17,7 @@ import "../styles/TableRow.css";
  * @property {boolean} [selectable=false] - Whether the row is selectable
  * @property {boolean} [isRowSelected=false] - Whether the row is selected
  * @property {(rowId: number) => void} [onRowSelect] - Function to select a row
+ * @property {(row: DataItem) => void} [onRowClick] - Optional callback function when a parent row is clicked
  */
 interface TableRowProps {
     row: Row<DataItem> | DataItem;
@@ -30,6 +31,7 @@ interface TableRowProps {
     selectable?: boolean;
     isRowSelected?: boolean;
     onRowSelect?: (rowId: number) => void;
+    onRowClick?: (row: DataItem) => void;
 }
 /**
  * Renders a table row with support for nested rows and expansion

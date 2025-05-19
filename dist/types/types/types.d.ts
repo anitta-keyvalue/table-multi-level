@@ -2,7 +2,7 @@ import type React from 'react';
 import type { Row, TableInstance, TableState } from 'react-table';
 export interface Column {
     key: string;
-    title: string;
+    title: string | React.ReactNode;
     filterable?: boolean;
     render?: (value: string | number, item: DataItem) => React.ReactNode;
     sortable?: boolean;
@@ -18,6 +18,14 @@ export interface DataItem {
 export interface TableStateWithPagination<T extends object> extends TableState<T> {
     pageIndex: number;
     pageSize: number;
+    sortBy: Array<{
+        id: string;
+        desc: boolean;
+    }>;
+    filters: Array<{
+        id: string;
+        value: string;
+    }>;
 }
 export interface TableInstanceWithHooks<T extends object> extends TableInstance<T> {
     page: Row<T>[];

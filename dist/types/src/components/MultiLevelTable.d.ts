@@ -10,6 +10,7 @@ import "../styles/MultiLevelTable.css";
  * @property {Column[]} columns - Array of column configurations
  * @property {number} [pageSize=10] - Number of items per page
  * @property {ThemeProps} theme - Theme properties
+ * @property {(row: DataItem) => void} [onRowClick] - Optional callback function when a parent row is clicked
  */
 export interface MultiLevelTableProps {
     data: DataItem[];
@@ -23,6 +24,7 @@ export interface MultiLevelTableProps {
     expandIcon?: React.ReactNode;
     selectable?: boolean;
     onSelectionChange?: (selectedRows: Set<string | number>) => void;
+    onRowClick?: (row: DataItem) => void;
 }
 /**
  * A multi-level table component that supports hierarchical data, sorting, filtering, and pagination
