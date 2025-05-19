@@ -1,7 +1,7 @@
 {
   "name": "@anitta-kv/material-table-component",
   "private": false,
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "A flexible and customizable table component built with React and Material-UI",
   "author": "anitta-kv",
   "license": "MIT",
